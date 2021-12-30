@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: "Weigth",
+                            hintText: "Weight",
                             hintStyle: TextStyle(
                                 fontSize: 36,
                                 fontWeight: FontWeight.w300,
