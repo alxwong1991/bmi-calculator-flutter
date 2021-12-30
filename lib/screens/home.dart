@@ -11,8 +11,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController heightController = TextEditingController();
   TextEditingController weightController = TextEditingController();
-  double bmiResult = 0;
-  String textResult = "";
+  double _bmiResult = 0;
+  String _textResult = "";
 
   @override
   Widget build(BuildContext context) {
@@ -77,15 +77,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   double _h = double.parse(heightController.text);
                   double _w = double.parse(weightController.text);
                   setState(() {
-                    bmiResult = _w / (_h * _h);
-                    if (bmiResult > 30) {
-                      textResult = "You\'re obese";
-                    } else if (bmiResult >= 25 && bmiResult <= 30) {
-                      textResult = "You\'re over weight";
-                    } else if (bmiResult >= 18.5 && bmiResult <= 25) {
-                      textResult = "You have normal weight";
+                    _bmiResult = _w / (_h * _h);
+                    if (_bmiResult > 30) {
+                      _textResult = "You\'re obese";
+                    } else if (_bmiResult >= 25 && _bmiResult <= 30) {
+                      _textResult = "You\'re over weight";
+                    } else if (_bmiResult >= 18.5 && _bmiResult <= 25) {
+                      _textResult = "You have normal weight";
                     } else {
-                      textResult = "You\'re under weight";
+                      _textResult = "You\'re under weight";
                     }
                   });
                 },
@@ -101,14 +101,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Container(
                   child: Text(
-                bmiResult.toStringAsFixed(2),
+                _bmiResult.toStringAsFixed(2),
                 style: TextStyle(fontSize: 70, color: accentHexColor),
               )),
               SizedBox(height: 30),
               Visibility(
-                  visible: textResult.isNotEmpty,
+                  visible: _textResult.isNotEmpty,
                   child: Container(
-                    child: Text(textResult,
+                    child: Text(_textResult,
                         style: TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.w400,
