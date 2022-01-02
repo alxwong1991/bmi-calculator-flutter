@@ -9,8 +9,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  TextEditingController heightController = TextEditingController();
-  TextEditingController weightController = TextEditingController();
+  TextEditingController _heightController = TextEditingController();
+  TextEditingController _weightController = TextEditingController();
   double _bmiResult = 0;
   String _textResult = "";
 
@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     width: 130,
                     child: TextField(
-                      controller: heightController,
+                      controller: _heightController,
                       style: TextStyle(
                           fontSize: 42,
                           fontWeight: FontWeight.w300,
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                       width: 130,
                       child: TextField(
-                        controller: weightController,
+                        controller: _weightController,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 42,
@@ -74,8 +74,8 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 30),
               GestureDetector(
                 onTap: () {
-                  double _h = double.parse(heightController.text);
-                  double _w = double.parse(weightController.text);
+                  double _h = double.parse(_heightController.text);
+                  double _w = double.parse(_weightController.text);
                   setState(() {
                     _bmiResult = _w / (_h * _h);
                     if (_bmiResult > 30) {
